@@ -1,3 +1,4 @@
+# Ejemplos númericos
 a = 10
 b = 3
 
