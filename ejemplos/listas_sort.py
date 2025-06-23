@@ -1,4 +1,4 @@
-# Ejemplo de uso de sort()
+# Ejemplo de uso de sort
 
 lista = [3, 1, 2]
 resultado = lista.sort()
