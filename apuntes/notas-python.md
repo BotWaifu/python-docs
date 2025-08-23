@@ -25,12 +25,12 @@
 ## Tipos de datos built-in
 
 - `int`, `float`, `complex`: Números  
-- `'str', 'list', 'tuple', 'range'`: Secuencias ordenadas  
-- `'dict'`: Diccionarios (clave-valor)  
-- `'bool'`: Verdadero / falso  
-- `'None'`: Ausencia de valor  
-- `'exception'`: Tipos de error (ValueError, IndexError...)  
-- `'class'`, `'instance'`: Tipos definidos por el usuario  
+- `str`, `list`, `tuple`, `range`: Secuencias ordenadas  
+- `dict`: Diccionarios (clave-valor)  
+- `bool`: Verdadero / falso  
+- `None`: Ausencia de valor  
+- `exception`: Tipos de error (ValueError, IndexError...)  
+- `class`, `instance`: Tipos definidos por el usuario  
 
 ------------------------------------------------------------------------
 ## Mutabilidad de colecciones
