@@ -35,7 +35,7 @@
 
 Algunas estructuras como listas o diccionarios **se pueden modificar directamente** (son mutables). 
 
-Cuando se usa un metodo como .append() o .sort()
+Cuando se usa un método como .append() o .sort()
 - Modifican la colección
 - No devuelven nada (retornan None)
 
