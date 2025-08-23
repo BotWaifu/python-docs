@@ -32,3 +32,5 @@ average_score = round((game_one_score + game_two_score + game_three_score + game
 
 print (average_score)
 
+def es_menor_lex(s: str, t: str) -> bool:
+    return True
