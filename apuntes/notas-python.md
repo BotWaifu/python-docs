@@ -24,7 +24,7 @@
 
 ## Tipos de datos built-in
 
-- `'int', 'float', 'complex'`: Números  
+- `int`, `float`, `complex`: Números  
 - `'str', 'list', 'tuple', 'range'`: Secuencias ordenadas  
 - `'dict'`: Diccionarios (clave-valor)  
 - `'bool'`: Verdadero / falso  
