@@ -15,9 +15,11 @@
 4. [`str()` vs `repr()`](#str-vs-repr)
 5. [Tipos numéricos](#tipos-numéricos)
 6. [Operaciones básicas](#operaciones-básicas)
-7. [Comparadores](#comparadores)
-8. [Booleanos y operadores lógicos](#booleanos-y-operadores-lógicos)
-9. [Evaluación de verdad (Truth Value Testing)](#evaluación-de-verdad-truth-value-testing)
+7. [Funciones útiles para `int` y `float`](#funciones-útiles-para-int-y-float)
+8. [Comparadores](#comparadores)
+9. [Booleanos y operadores lógicos](#booleanos-y-operadores-lógicos)
+10. [Evaluación de verdad (Truth Value Testing)](#evaluación-de-verdad-truth-value-testing)
+11. [Métodos Adicionales del Tipo `int` en Python](#métodos-adicionales-del-tipo-int-en-Python)
 
 
 ## Tipos de datos built-in
@@ -142,6 +144,11 @@ print(type(z))  # 'complex'
 | `x ** y`         | Potencia (operador)                 | `2 ** 3 → 8`                  |
 
 
+### División entera (`//`)
+- Si ambos operandos son `int`, el resultado es `int`.
+- Si alguno es `float`, el resultado es `float`.
+- **Siempre redondea hacia abajo (hacia el menos infinito)**.
+
 ### Suma, Resta, Multiplicación y División
  - La división con / siempre da un número tipo float, incluso si es exacta.
 
@@ -179,9 +186,48 @@ print(type(z))  # 'complex'
 
 ### x ** y → Potencia (operador)
 - Forma más común de hacer potencias.
----
+
+
+## Funciones útiles para `int` y `float`
+
+| Función              | Descripción                                                        |
+|----------------------|--------------------------------------------------------------------|
+| `math.trunc(x)`      | Trunca (corta) los decimales. No redondea.                         |
+| `round(x[, n])`      | Redondea a `n` dígitos. Si no se indica `n`, redondea a entero.    |
+| `math.floor(x)`      | Redondea hacia abajo (el entero menor o igual a `x`).              |
+| `math.ceil(x)`       | Redondea hacia arriba (el entero mayor o igual a `x`).             |
+
+### División entera (`//`)
+- Si ambos operandos son `int`, el resultado es `int`.
+- Si alguno es `float`, el resultado es `float`.
+- **Siempre redondea hacia abajo (hacia el menos infinito)**.
+
+### Números complejos
+- Estas operaciones **no funcionan** con números complejos.
+- Puedes usar `abs()` si necesita el valor absoluto.
+
+### Conversión `float` → `int`
+- Trunca (corta) los decimales, **no redondea**.
+
+- Para redondear correctamente:
+- `math.floor(x)` → redondea hacia abajo.
+- `math.ceil(x)` → redondea hacia arriba.
+
+- Para redondear correctamente:
+- `math.floor(x)` → redondea hacia abajo.
+- `math.ceil(x)` → redondea hacia arriba.
+
+### Valores especiales en `float`
+- `float()` acepta:
+- `"nan"`  → Not a Number
+- `"inf"`  → Infinito positivo
+- `"-inf"` → Infinito negativo
+
+### Literales numéricos
+- Puedes usar los dígitos `0` a `9`, o caracteres Unicode equivalentes con propiedad `Nd`.
 
 ## Comparadores
+Lexicographic order
 
 | Operador | Significado                  | Ejemplo             |
 |----------|------------------------------|---------------------|
@@ -251,3 +297,69 @@ Python considera **falso** lo siguiente:
 - `""`, `[]`, `()`, `{}`, `set()`, `range(0)`
 
 Todo lo demás se evalúa como **True**.
+
+--
+# Métodos Adicionales del Tipo `int` en Python
+
+## 1. `int.bit_length()`
+Devuelve la cantidad de bits necesarios para representar el valor absoluto de un entero en binario (sin signo ni ceros iniciales).
+
+## 2. `int.bit_count()`
+Cuenta los bits `1` en la representación binaria del valor absoluto del número.
+
+## 3. `int.to_bytes(length, byteorder, signed=False)`
+Convierte un entero en una secuencia de bytes.
+
+## 4. `int.from_bytes(bytes, byteorder, signed=False)`
+Convierte una secuencia de bytes a un número entero.
+
+## 5. `int.as_integer_ratio()`
+Devuelve una tupla `(numerador, denominador)` equivalente a la fracción del entero.
+
+## 6. `int.is_integer()`
+Devuelve `True`. Añadido por compatibilidad con `float.is_integer()`.
+-----
+
+sea L = min(|s|, |t|) 
+si existe 1 <= i <= L tal que
+s[j] = t[j] para todo j < i
+s[i] < t[i] alfab'eticamente
+si s[j] = t[j] para todo 1 <= j  <= L, pero |s| < |t|
+amor vs a
+amor mide 4
+a mide 1
+hasta la posici'on 1
+a < amor
+bebe vs zu 
+L = min(4, 2) = 2
+b vs z (alfabéticamente)
+bebe < zu 
+meme vs meter
+L = min(4, 5) = 4
+para i = 1
+m = m
+para i = 2, e = e
+para i = 3, m < t
+meme < meter
+---
+
+En Python, las cadenas de texto se pueden comparar usando los comparadores <, >, ==, etc.
+Estas comparaciones se hacen de forma lexicográfica, es decir, comparando caracter por caracter.
+
+Por ejemplo,
+"ana" < "carlos" da True porque 'a' < 'c'.
+"ana" < "andres" da True porque 'a' == 'a', 'n' == 'n', pero 'a' < 'd'
+
+Implementa una función llamada es_menor_lex(s: str, t: str) -> bool que retorna True si s es menor que t 
+según el orden lexicográfico, y False en caso contrario.
+
+Una cadena s es menor lexicográficamente que otra cadena t si ocurre alguna de las siguientes condiciones:
+1. Existe un índice i tal que s[i] < t[i] y s[j] == t[j] para todo j < i.
+2. O bien, s es un prefijo propio de t (es decir, todos los caracteres de s coinciden con los de t, pero s es más corta que t).
+
+Ejemplos:
+es_menor_lex("ana", "andres") retorna True
+es_menor_lex("casa", "casamiento") retorna True
+es_menor_lex("zorro", "abeja") retorna False
+es_menor_lex("hola", "hola") retorna False
+
