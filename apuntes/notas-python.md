@@ -94,7 +94,7 @@ print(repr(texto))  # 'Hola Zulhei'
 - Son números con parte real e imaginaria.
 
 - Lo que me explico uwu
-x = 5 
+```x = 5 
 y = 3.14 
 z = 2 + 3j 
 
@@ -119,7 +119,7 @@ z = 2 + 3j   # complex
 print(type(x))  # 'int'
 print(type(y))  # 'float'
 print(type(z))  # 'complex'
-
+```
 --------------------------------------------
 
 ## Operaciones básicas
@@ -243,15 +243,15 @@ Lexicographic order
 ## <, <=, >, >=
 Se usan con numeros, letras o cualquier valor ordenable.
 
-print(3 < 5)      # True
+```print(3 < 5)      # True
 print("a" < "z")  # True
-
+```
 ## ==, !=
 Comparan si los valores son iguales o distintos.
 
-print(3 == 3)        # True
+```print(3 == 3)        # True
 print("hola" != "")  # True
-
+```
 True → 1
 False → 0
 ---
